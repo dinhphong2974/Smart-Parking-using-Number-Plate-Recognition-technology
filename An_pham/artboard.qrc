@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="picture">
+    <file>Artboard 1button new.png</file>
+    <file>Artboard 3button new 2.png</file>
+    <file>Artboard 3button new.png</file>
+    <file>Artboard 1HUI.png</file>
+    <file>bgr.png</file>
+    <file>Artboard 1button biển số.png</file>
+    <file>Artboard 1button check.png</file>
+    <file>Artboard 1button exit.png</file>
+    <file>Artboard 1button save.png</file>
+    <file>Artboard 1button slot.png</file>
+    <file>Artboard 1camera phụ.png</file>
+  </qresource>
+</RCC>

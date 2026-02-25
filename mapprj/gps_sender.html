@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gửi GPS đến server</title>
+</head>
+<body>
+  <h2>Đang gửi tọa độ GPS...</h2>
+
+  <script>
+    const device_id = "UAV-001"; // Bạn có thể đổi tên thiết bị
+
+    function sendLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          const data = {
+            device_id: device_id,
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+            time: new Date().toISOString()
+          };
+
+          fetch("http://192.168.1.142:5000/update", {  // THAY IP ở đây
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          })
+          .then(res => console.log("✔️ Gửi thành công:", data))
+          .catch(err => console.error("❌ Lỗi gửi:", err));
+        });
+      } else {
+        alert("Trình duyệt không hỗ trợ định vị.");
+      }
+    }
+
+    // Gửi vị trí mỗi 5 giây
+    setInterval(sendLocation, 1000);
+  </script>
+</body>
+</html>
